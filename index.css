@@ -1,0 +1,45 @@
+body {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.2) 47.62%
+  );
+  color: #000 !important;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 66px;
+  justify-content: center;
+  padding-top: 115px;
+  width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+p {
+  width: 347px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+h1 {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+button {
+  width: 500px;
+  height: 60px;
+  flex-shrink: 0;
+  background: #0094ff;
+  cursor: pointer;
+}
