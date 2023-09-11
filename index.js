@@ -1,29 +1,39 @@
-const addActionBtn = document.getElementById("addActionBtn");
-const actionOutput = document.getElementById("actionOutput");
+const DEFAULT_INTRO_TEXT = "🤔Стало скучно?";
+const DEFAULT_MAIN_TEXT = "Не знаешь, чем заняться?";
+const ACTIVE_INTRO_TEXT = "УРА! Теперь не скучно!";
+
+const introTextNode = document.getElementById("introText");
+const actionOutputNode = document.getElementById("actionOutput");
+const addActionBtnNode = document.getElementById("addActionBtn");
+
+initApp();
+
+function initApp() {
+  introTextNode.innerText = DEFAULT_INTRO_TEXT;
+  actionOutputNode.innerText = DEFAULT_MAIN_TEXT;
+}
 
 function getActionFromApi() {
   fetch("http://www.boredapi.com/api/activity")
-    .then((data) => data.json())
+    .then((response) => response.json())
     .then((res) => {
-      if (res.status !== "success") {
-        return null;
+      if (res.ok) {
+        return res;
       }
-      //const actionFromApi = res.activity;
-      console.log(res.activity);
-      //document.getElementById("actionOutput").innerText = `${actionFromApi}`;
+      const actionFromApi = res.activity;
+      console.log(actionFromApi);
+      actionOutputNode.innerText = `${actionFromApi}`;
     });
 }
 
-addActionBtn.addEventListener("click", getActionFromApi);
+function changeIntroTextAndBackground() {
+  introTextNode.innerText = ACTIVE_INTRO_TEXT;
+  document.body.classList.add("active");
+}
 
-// fetch("https://dog.ceo/api/breeds/image/random")
-//   .then((data) => data.json())
-//   .then((res) => {
-//     if (res.status !== "success") {
-//       return;
-//     }
-//     const imgSrc = res.message;
-//     document.querySelector(
-//       ".js-img-from-api"
-//     ).innerHTML = `<img src="${imgSrc}">`;
-//   });
+function actionBtnHandler() {
+  changeIntroTextAndBackground();
+  getActionFromApi();
+}
+
+addActionBtnNode.addEventListener("click", actionBtnHandler);
