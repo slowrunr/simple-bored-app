@@ -3,17 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="index.css" />
-
+    <!-- <link rel="//libretranslate.com/translate" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="icon" href="icons/bored-icon.png" />
     <title>simple-bored-app</title>
   </head>
   <body>
@@ -21,6 +24,9 @@
       <p id="introText" class="intro-text"></p>
       <h1 id="actionOutput" class="action-output"></h1>
       <button id="addActionBtn" class="add-action-btn">Найти занятие!</button>
+      <!-- <button id="translateActionBtn" class="translate-action-btn">
+        Перевести!
+      </button> -->
     </div>
     <script src="index.js"></script>
   </body>

@@ -5,6 +5,7 @@ const ACTIVE_INTRO_TEXT = "УРА! Теперь не скучно!";
 const introTextNode = document.getElementById("introText");
 const actionOutputNode = document.getElementById("actionOutput");
 const addActionBtnNode = document.getElementById("addActionBtn");
+const translateActionBtnNode = document.getElementById("translateActionBtn");
 
 initApp();
 
@@ -21,7 +22,7 @@ function getActionFromApi() {
         return res;
       }
       const actionFromApi = res.activity;
-      console.log(actionFromApi);
+      //   console.log(actionFromApi);
       actionOutputNode.innerText = `${actionFromApi}`;
     });
 }
@@ -37,3 +38,26 @@ function actionBtnHandler() {
 }
 
 addActionBtnNode.addEventListener("click", actionBtnHandler);
+// translateActionBtnNode.addEventListener("click", translateBtnHandler);
+
+// function translateBtnHandler() {
+//   fetch("https://libretranslate.com/translate", {
+//     method: "POST",
+//     body: JSON.stringify({
+//       q: "actionFromApi.value",
+//       source: "en",
+//       target: "ru",
+//       format: "text",
+//       api_key: "",
+//     }),
+//     headers: { "Content-Type": "application/json" },
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       actionTranslation = data.translatedText;
+//       console.log(data.translatedText);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// }
